@@ -71,8 +71,11 @@ CHIP ALU {
     Mux16(a=fout, b=notfout, sel=no, out=out, out[0..7]=aout, out[8..15]=bout, out[15]=ng);
 
     // if (out == 0) set zr = 1
+    // 上のMux16で16ビットの出力がされるので、それを8ビットずつに分けて隣り合わせのビットごとにOr演算
     Or8Way(in=aout, out=zr1);
     Or8Way(in=bout, out=zr2);
+    // Or8wayの出力は8ビットのうち1つでも1があれば1になるので、1 or 0の出力同士でOr演算
+    // この一連の処理で「outが0ではない」判定をしている
     Or(a=zr1, b=zr2, out=any);
     Not(in=any, out=zr);
 }
