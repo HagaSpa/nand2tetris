@@ -1,8 +1,3 @@
-// This file is part of www.nand2tetris.org
-// and the book "The Elements of Computing Systems"
-// by Nisan and Schocken, MIT Press.
-// File name: projects/05/CPU.hdl
-
 /**
  * The Hack CPU (Central Processing unit), consisting of an ALU,
  * two registers named A and D, and a program counter named PC.
@@ -39,5 +34,12 @@ CHIP CPU {
         pc[15];          // address of next instruction
 
     PARTS:
-    // Put your code here:
+    // Decode comp
+    Mux16(a=instruction, b=outAlu, sel=instruction[15], out=comp);
+
+    // Whether to save in the A register
+    Not(in=instruction[15], out=not15);
+    Or(a=not15, b=instruction[5], out=selectIns);
+
+    // 
 }
