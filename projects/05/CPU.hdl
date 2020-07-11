@@ -34,6 +34,10 @@ CHIP CPU {
         pc[15];          // address of next instruction
 
     PARTS:
+    /*
+      A Register
+    */
+
     // Decode comp
     Mux16(a=instruction, b=outAlu, sel=instruction[15], out=comp);
 
@@ -47,13 +51,20 @@ CHIP CPU {
     // Select input Y for ALU. Whether A register Or M register
     Mux16(a=outRegiA, b=inM, sel=instruction[12], out=y);
 
+    /*
+      D Register
+    */
+
     // Create load for D Register
     And(a=instruction[15], b=instruction[4], out=loadD);
 
     // D Register
     DRegister(in=outAlu, load=loadD, out=outRegiD);
 
-    // ALU
+    /* 
+      ALU
+    */
+
     ALU(
         // input
         x=outRegiD,
@@ -71,8 +82,8 @@ CHIP CPU {
         ng=ng
     );
 
-    /* 
-      Create load for PC
+    /*
+      PC
     */
 
     // Until creating w for Or
@@ -91,14 +102,12 @@ CHIP CPU {
     // Create load for PC
     And(a=instruction[15], b=r0, out=loadPC);
 
-    /*
-      PC
-    */
+    // PC
     PC(in=outRegiA, load=loadPC, inc=true, reset=reset, out[0..14]=pc);
 
     /*
       Write M
     */
-    And(a=instruction[15], b=instruction[3], out=writeM);
 
+    And(a=instruction[15], b=instruction[3], out=writeM);
 }
