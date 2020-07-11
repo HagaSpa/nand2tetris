@@ -94,7 +94,7 @@ CHIP CPU {
     /*
       PC
     */
-    PC(in=outRegiD, load=loadPC, inc=true, reset=reset, out[0..14]=pc);
+    PC(in=outRegiA, load=loadPC, inc=true, reset=reset, out[0..14]=pc);
 
     /*
       Write M
