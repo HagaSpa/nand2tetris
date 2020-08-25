@@ -17,7 +17,7 @@ M=D
 @SP
 M=M+1
 
-// Condition Operator eq
+// Condition Operator JEQ
 @SP
 M=M-1
 A=M
@@ -56,7 +56,7 @@ M=D
 @SP
 M=M+1
 
-// Condition Operator eq
+// Condition Operator JEQ
 @SP
 M=M-1
 A=M
@@ -95,7 +95,7 @@ M=D
 @SP
 M=M+1
 
-// Condition Operator eq
+// Condition Operator JEQ
 @SP
 M=M-1
 A=M
@@ -134,7 +134,7 @@ M=D
 @SP
 M=M+1
 
-// Condition Operator lt
+// Condition Operator JLT
 @SP
 M=M-1
 A=M
@@ -173,7 +173,7 @@ M=D
 @SP
 M=M+1
 
-// Condition Operator lt
+// Condition Operator JLT
 @SP
 M=M-1
 A=M
@@ -212,7 +212,7 @@ M=D
 @SP
 M=M+1
 
-// Condition Operator lt
+// Condition Operator JLT
 @SP
 M=M-1
 A=M
@@ -251,7 +251,7 @@ M=D
 @SP
 M=M+1
 
-// Condition Operator gt
+// Condition Operator JGT
 @SP
 M=M-1
 A=M
@@ -290,7 +290,7 @@ M=D
 @SP
 M=M+1
 
-// Condition Operator gt
+// Condition Operator JGT
 @SP
 M=M-1
 A=M
@@ -329,7 +329,7 @@ M=D
 @SP
 M=M+1
 
-// Condition Operator gt
+// Condition Operator JGT
 @SP
 M=M-1
 A=M
